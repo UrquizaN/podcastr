@@ -15,6 +15,8 @@ export function Player () {
         episodeList, 
         currentEpisodeIndex, 
         isPlaying, 
+        playNext,
+        playPrevious,
         togglePlay, 
         setPlayingState
     } = useContext(PlayerContext);
@@ -49,7 +51,7 @@ export function Player () {
                         objectFit="cover"
                         objectPosition="left"
                     />
-                    <strong>Selecione um podcast para ouvir</strong>
+                    <strong>{episode.title}</strong>
                     <span>{episode.members}</span>
                 </div>
             ) : (
@@ -101,10 +103,10 @@ export function Player () {
                             <img src="/play.svg" alt="Tocar"/>
                         )}
                     </button>
-                    <button type="button" disabled={!episode}>
+                    <button type="button" onClick={playNext} disabled={!episode}>
                         <img src="/play-next.svg" alt="Tocar próxima"/>
                     </button>
-                    <button type="button" disabled={!episode}>
+                    <button type="button" onClick={playPrevious} disabled={!episode}>
                         <img src="/repeat.svg" alt="Repetir"/>
                     </button>
                 </div>
