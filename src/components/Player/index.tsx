@@ -1,6 +1,6 @@
-import { PlayerContext } from '../../contexts/PlayerContext';
+import { usePlayer } from '../../contexts/PlayerContext';
 
-import { useContext, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 
 import Slider from 'rc-slider';
@@ -21,7 +21,7 @@ export function Player () {
         setPlayingState,
         hasNext,
         hasPrevious
-    } = useContext(PlayerContext);
+    } = usePlayer();
 
     useEffect(() =>{
         if(!audioRef.current){
